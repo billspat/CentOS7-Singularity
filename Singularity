@@ -1,5 +1,5 @@
 ################################################################################
-# Basic bootstrap definition to build CentOS 7 container from Docker container
+# DRAFT CentOS 7 based Singularity container for MSU ICER Analytics
 ################################################################################
 
 BootStrap: docker
@@ -7,6 +7,7 @@ From: centos:latest
  
 ################################################################################
 # Copy any necessary files into the container
+# These are simple scripts that set prompt
 ################################################################################
 %files
 ./etc/profile.d/z_container_prompt.sh  /etc/profile.d/z_container_prompt.sh
@@ -29,7 +30,7 @@ yum -y install tcsh ksh zsh
 yum -y install vim
 
 ################################################################################
-# Install PIP from EPEL and upgrade it to the latest version
+# Python3 : Install PIP from EPEL and upgrade it to the latest version
 ################################################################################
 yum -y install epel-release
 yum -y install python34-pip python-pip
@@ -38,13 +39,18 @@ pip3 install --upgrade pip
 pip  install --upgrade virtualenv
 
 ################################################################################
-# Create directories to enable access to common HPCC mount points
+# R : (latest) 
+################################################################################
+yum -y install R
+
+################################################################################
+# Create directories to enable access to common MSU HPCC mount points
 ################################################################################
 mkdir /boot
 mkdir /cvmfs
 mkdir -p /mnt/home
 mkdir -p /mnt/research
-mkdir -p /mnt/dfs17
+# mkdir -p /mnt/dfs17
 mkdir -p /mnt/ffs17
 mkdir -p /mnt/local
 mkdir -p /mnt/ls15
