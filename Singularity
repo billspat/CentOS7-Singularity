@@ -39,6 +39,13 @@ pip3 install --upgrade pip
 pip  install --upgrade virtualenv
 
 ################################################################################
+# attempt to get newer tool chains and Math libs
+################################################################################
+
+yum -y install centos-release-scl
+yum -y install devtoolset-4
+yum -y install devtoolset-6
+################################################################################
 # R : (latest) 
 ################################################################################
 yum -y install R
