@@ -26,13 +26,13 @@ yum -y install tcsh ksh zsh
 ################################################################################
 # Install additional packages
 ################################################################################
-yum -y install vim
+yum -y install vim nano
 
 ################################################################################
 # Install PIP from EPEL and upgrade it to the latest version
 ################################################################################
 yum -y install epel-release
-yum -y install python34-pip python-pip
+yum -y install python34-pip python-pip python34-devel
 pip  install --upgrade pip
 pip3 install --upgrade pip
 pip  install --upgrade virtualenv
